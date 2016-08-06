@@ -137,6 +137,7 @@ $(document).ready(function() {
     });
 
     $('.square').click(function() {
+      if(!winner){
         var row = $(this).attr('row');
         var col = $(this).attr('col');
         (turns % 2) ? placeX(row, col, $(this)): placeO(row, col, $(this));
@@ -148,6 +149,7 @@ $(document).ready(function() {
           $('#redWins').text("Red's wins: "+redWins);
           $('#blueWins').text("Blue's wins: "+blueWins);
         }
+      }
     });
 
 
