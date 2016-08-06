@@ -1,0 +1,35 @@
+/* style.css */
+body {
+    text-align: center;
+    font-family: sans-serif;
+}
+#board {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: auto;
+}
+.square {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    padding: 1px;
+    border: 1px solid #d0d0d0;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+}
+.square:hover {
+    background-color: #dadada;
+}
+#resetButton {
+    display: block;
+    width: 100px;
+    height: 22px;
+    margin: auto;
+    padding-top: 5px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #d0d0d0;
+    border-radius: 5px;
+}
