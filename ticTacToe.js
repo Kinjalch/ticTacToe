@@ -9,16 +9,17 @@ var blueWins = 0;
 var winner = null;
 
 /* helper functions */
-function isOcc(row, col) { // returns true if occupied
+function isOcc(row, col, $square) { // returns true if occupied
     if (board[row][col] !== '') {
         console.log("occupied square");
+        $square.effect('shake');
         return true;
     }
     return false;
 }
 
 function placeX(row, col, $square) { // places an X on the board
-    if(isOcc(row, col)) return;
+    if(isOcc(row, col, $square)) return;
     turns++;
     board[row][col] = 'X';
     $square.css("background-color", "red");
@@ -27,7 +28,7 @@ function placeX(row, col, $square) { // places an X on the board
 }
 
 function placeO(row, col, $square) { // places an O on the board
-    if(isOcc(row, col)) return;
+    if(isOcc(row, col, $square)) return;
     turns++;
     board[row][col] = 'O';
     $square.css("background-color", "blue");
@@ -121,6 +122,7 @@ function checkWin() { //checks win conditions
 
 /* event listeners */
 $(document).ready(function() {
+
     $('#resetButton').click(function() {
         console.log("Reset button clicked.");
         for(var i = 0; i < 3; i++){
@@ -140,7 +142,7 @@ $(document).ready(function() {
       if(!winner){
         var row = $(this).attr('row');
         var col = $(this).attr('col');
-        (turns % 2) ? placeX(row, col, $(this)): placeO(row, col, $(this));
+        (turns % 2) ? placeX(row, col, $(this)) : placeO(row, col, $(this));
         //console.log(row + ", " + col + " clicked");
         if(!winner){
           (turns % 2) ? $('#turn').text("Red's turn!") : $('#turn').text("Blue's turn!");
@@ -151,6 +153,4 @@ $(document).ready(function() {
         }
       }
     });
-
-
 });

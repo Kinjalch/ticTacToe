@@ -1,7 +1,11 @@
 /* style.css */
 body {
     text-align: center;
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+}
+h1 {
+  font-weight: 900;
 }
 #board {
     position: relative;
